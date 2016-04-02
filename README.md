@@ -25,6 +25,21 @@ cd pca10028
 make
 ```
 
+## Upload
+
+```
+//erase firmware
+nrfjprog --family  nRF51 -e
+
+//upload firmware
+nrfjprog --family  nRF51 --program _build/nrf51422_xxac.hex
+
+//start firmware
+nrfjprog --family  nRF51 -r
+```
+
+To debug watch `Debug your code` section of https://gist.github.com/akinaru/a38315c5fe79ec5c8c6a9ed90b8df260
+
 ## License
 
 The MIT License (MIT) Copyright (c) 2016 Bertrand Martel
