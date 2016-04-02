@@ -10,7 +10,7 @@ Original project : https://github.com/NewhavenDisplay/NHD-1.69-160128ASC3_Exampl
 
 ## Setup/Installation
 
-* follow SDK/Toolchain installation steps section of https://gist.github.com/akinaru/a38315c5fe79ec5c8c6a9ed90b8df260
+* follow SDK/Toolchain Installation steps section of <a href="https://gist.github.com/akinaru/a38315c5fe79ec5c8c6a9ed90b8df260#installation-steps">this tutorial</a>
 
 * specify NRF51 SDK directory with :
 
@@ -38,7 +38,7 @@ nrfjprog --family  nRF51 --program _build/nrf51422_xxac.hex
 nrfjprog --family  nRF51 -r
 ```
 
-To debug watch `Debug your code` section of https://gist.github.com/akinaru/a38315c5fe79ec5c8c6a9ed90b8df260
+To debug your code : <a href="https://gist.github.com/akinaru/a38315c5fe79ec5c8c6a9ed90b8df260#debug-your-code">check this link</a>
 
 ## License
 
