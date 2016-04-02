@@ -1,13 +1,9 @@
-/* Copyright (c) 2014 Nordic Semiconductor. All Rights Reserved.
+/* 
+ * main.c
  *
- * The information contained herein is property of Nordic Semiconductor ASA.
- * Terms and conditions of usage are described in detail in NORDIC
- * SEMICONDUCTOR STANDARD SOFTWARE LICENSE AGREEMENT.
+ * Port of https://github.com/NewhavenDisplay/NHD-1.69-160128ASC3_Example NewHaven OLED 1.69 display Arduino example on Nordic DK51 board
  *
- * Licensees are granted free, non-transferable use of the information. NO
- * WARRANTY of ANY KIND is provided. This heading must NOT be removed from
- * the file.
- *
+ * 
  */
 
 /** @file
@@ -1327,25 +1323,6 @@ int main(void)
     OLED_Spectrum_160128RGB();                       // show color spectrum
     
     while(1);                                        // wait here forever
-    /*
-    nrf_gpio_cfg_output(LED_X);
-    nrf_gpio_cfg_output(LED_Y);
-
-    digitalWrite(LED_X,LOW);
-    digitalWrite(LED_Y,LOW);
-
-    // Toggle LEDs.
-    while (true)
-    {
-        digitalWrite(LED_X,LOW);
-        digitalWrite(LED_Y,LOW);
-        SEGGER_RTT_WriteString(0, "Hello World from SEGGER!\r\n");
-        nrf_delay_ms(500);
-        digitalWrite(LED_X,HIGH);
-        digitalWrite(LED_Y,HIGH);
-        nrf_delay_ms(500);
-    }
-    */
 }
 
 
