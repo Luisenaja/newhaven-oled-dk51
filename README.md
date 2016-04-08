@@ -1,5 +1,7 @@
 # NewHaven OLED 1.69 display on NRF51 board
 
+[![Build Status](https://drone.io/github.com/akinaru/newhaven-oled-dk51/status.png)](https://drone.io/github.com/akinaru/newhaven-oled-dk51/latest)
+
 Integration of NewHaven OLED 1.69 display on Nordic Semiconductor NRF51 DK board
 
 ![screenshot](img/newhaven-dk51.jpg)
