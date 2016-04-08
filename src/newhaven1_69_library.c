@@ -22,6 +22,20 @@
  * THE SOFTWARE.                                                                 *
  *********************************************************************************/
 
+/*********************************************************************************/
+/********************* NEWHAVEN  NOTICE ******************************************/
+/*********************************************************************************
+ *  Pick one up today in the Newhaven Display shop!                              *
+ * ------> http://www.newhavendisplay.com/nhd169160128asc3-p-9288.html           *
+ *                                                                               *
+ * This code is written for the Arduino Uno.                                     *
+ * Copyright (c) 2015 - Newhaven Display International, LLC.                     *
+ *                                                                               *
+ * Newhaven Display invests time and resources providing this open source code,  *
+ * please support Newhaven Display by purchasing products from Newhaven Display! *
+ *                                                                               *
+ *********************************************************************************/
+ 
 #include <stdbool.h>
 #include <stdint.h>
 #include "newhaven1_69_library.h"

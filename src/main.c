@@ -188,11 +188,8 @@ void draw_bitmap_sequence() {
  */
 int main(void)
 {   
-    SEGGER_RTT_printf(0, "\x1B[32mbsp_configuration1\x1B[0m\n");
     bsp_configuration();
-    SEGGER_RTT_printf(0, "\x1B[32mbsp_configuration2\x1B[0m\n");
     tft_setup();
-    SEGGER_RTT_printf(0, "\x1B[32mbsp_configuration3\x1B[0m\n");
 
     draw_bitmap(logo_image, TFT_WIDTH, TFT_HEIGHT);
 
