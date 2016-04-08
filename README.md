@@ -15,6 +15,12 @@ Based on project : https://github.com/NewhavenDisplay/NHD-1.69-160128ASC3_Exampl
 * buttons 3 & 4 on NRF51 DK board switch through a sequence of color/image
 * draw 160x128 bitmap (a 24 bit bitmap image input will give an image with 3x6 bit/pixel)
 
+## Configuration
+
+* armgcc toolchain
+* no softdevice flash required
+* nRF5 SDK 11.0.0
+
 ## Setup/Installation
 
 * follow SDK/Toolchain Installation steps section of <a href="https://gist.github.com/akinaru/a38315c5fe79ec5c8c6a9ed90b8df260#installation-steps">this tutorial</a>
