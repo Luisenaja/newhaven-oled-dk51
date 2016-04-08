@@ -37,24 +37,49 @@ remduplicates = $(strip $(if $1,$(firstword $1) $(call remduplicates,$(filter-ou
 
 #source common to all targets
 C_SOURCE_FILES += \
-$(abspath $(NRF51_SDK_DIR)/components/toolchain/system_nrf51.c) \
-$(abspath ../main.c) \
+$(abspath $(NRF51_SDK_DIR)/components/libraries/button/app_button.c) \
+$(abspath $(NRF51_SDK_DIR)/components/libraries/util/app_error.c) \
+$(abspath $(NRF51_SDK_DIR)/components/libraries/timer/app_timer.c) \
+$(abspath $(NRF51_SDK_DIR)/components/libraries/util/app_util_platform.c) \
+$(abspath $(NRF51_SDK_DIR)/components/libraries/util/nrf_assert.c) \
 $(abspath $(NRF51_SDK_DIR)/components/drivers_nrf/delay/nrf_delay.c) \
+$(abspath $(NRF51_SDK_DIR)/components/drivers_nrf/common/nrf_drv_common.c) \
+$(abspath $(NRF51_SDK_DIR)/components/libraries/gpiote/app_gpiote.c) \
+$(abspath $(NRF51_SDK_DIR)/components/drivers_nrf/gpiote/nrf_drv_gpiote.c) \
+$(abspath $(NRF51_SDK_DIR)/components/drivers_nrf/spi_master/nrf_drv_spi.c) \
 $(abspath $(NRF51_SDK_DIR)/components/drivers_ext/segger_rtt/SEGGER_RTT.c) \
+$(abspath $(NRF51_SDK_DIR)/components/drivers_ext/segger_rtt/SEGGER_RTT_printf.c) \
+$(abspath $(NRF51_SDK_DIR)/components/drivers_nrf/hal/nrf_adc.c) \
+$(abspath $(NRF51_SDK_DIR)/examples/bsp/bsp.c) \
+$(abspath src/common.c) \
+$(abspath src/newhaven1_69_library.c) \
+$(abspath src/main.c) \
+$(abspath $(NRF51_SDK_DIR)/components/toolchain/system_nrf51.c)
 
 #assembly files common to all targets
 ASM_SOURCE_FILES  = $(abspath $(NRF51_SDK_DIR)/components/toolchain/gcc/gcc_startup_nrf51.s)
 
 #includes common to all targets
-INC_PATHS += -I$(abspath $(NRF51_SDK_DIR)/components/toolchain/gcc)
-INC_PATHS += -I$(abspath $(NRF51_SDK_DIR)/components/toolchain)
-INC_PATHS += -I$(abspath .)
+INC_PATHS += -I$(abspath include)
 INC_PATHS += -I$(abspath $(NRF51_SDK_DIR)/examples/bsp)
+INC_PATHS += -I$(abspath $(NRF51_SDK_DIR)/components/drivers_nrf/nrf_soc_nosd)
 INC_PATHS += -I$(abspath $(NRF51_SDK_DIR)/components/device)
-INC_PATHS += -I$(abspath $(NRF51_SDK_DIR)/components/drivers_nrf/delay)
-INC_PATHS += -I$(abspath $(NRF51_SDK_DIR)/components/toolchain/CMSIS/Include)
 INC_PATHS += -I$(abspath $(NRF51_SDK_DIR)/components/drivers_nrf/hal)
+INC_PATHS += -I$(abspath $(NRF51_SDK_DIR)/components/libraries/button)
+INC_PATHS += -I$(abspath $(NRF51_SDK_DIR)/components/drivers_nrf/delay)
+INC_PATHS += -I$(abspath $(NRF51_SDK_DIR)/components/libraries/gpiote)
+INC_PATHS += -I$(abspath $(NRF51_SDK_DIR)/components/libraries/util)
+INC_PATHS += -I$(abspath $(NRF51_SDK_DIR)/components/drivers_nrf/common)
+INC_PATHS += -I$(abspath $(NRF51_SDK_DIR)/components/toolchain)
+INC_PATHS += -I$(abspath $(NRF51_SDK_DIR)/components/libraries/timer)
+INC_PATHS += -I$(abspath $(NRF51_SDK_DIR)/components/drivers_nrf/config)
+INC_PATHS += -I$(abspath $(NRF51_SDK_DIR)/components/drivers_nrf/spi_master)
+INC_PATHS += -I$(abspath $(NRF51_SDK_DIR)/components/drivers_nrf/gpiote)
+INC_PATHS += -I$(abspath $(NRF51_SDK_DIR)/components/toolchain/gcc)
 INC_PATHS += -I$(abspath $(NRF51_SDK_DIR)/components/drivers_ext/segger_rtt)
+INC_PATHS += -I$(abspath $(NRF51_SDK_DIR)/components/toolchain/CMSIS/Include)
+INC_PATHS += -I$(abspath $(NRF51_SDK_DIR)/components/libraries/button)
+
 
 OBJECT_DIRECTORY = _build
 LISTING_DIRECTORY = $(OBJECT_DIRECTORY)
@@ -65,15 +90,16 @@ BUILD_DIRECTORIES := $(sort $(OBJECT_DIRECTORY) $(OUTPUT_BINARY_DIRECTORY) $(LIS
 
 #flags common to all targets
 CFLAGS  = -DNRF51
+CFLAGS += -DSWI_DISABLE0
 CFLAGS += -DBOARD_PCA10028
-CFLAGS += -DBSP_DEFINES_ONLY
 CFLAGS += -mcpu=cortex-m0
 CFLAGS += -mthumb -mabi=aapcs --std=gnu99
-CFLAGS += -Wall -Werror -O0 -g3
+CFLAGS += -Wall -O3 -Werror
 CFLAGS += -mfloat-abi=soft
 # keep every function in separate section. This will allow linker to dump unused functions
 CFLAGS += -ffunction-sections -fdata-sections -fno-strict-aliasing
-CFLAGS += -fno-builtin --short-enums 
+CFLAGS += -fno-builtin --short-enums
+
 # keep every function in separate section. This will allow linker to dump unused functions
 LDFLAGS += -Xlinker -Map=$(LISTING_DIRECTORY)/$(OUTPUT_FILENAME).map
 LDFLAGS += -mthumb -mabi=aapcs -L $(TEMPLATE_PATH) -T$(LINKER_SCRIPT)
@@ -86,8 +112,8 @@ LDFLAGS += --specs=nano.specs -lc -lnosys
 # Assembler flags
 ASMFLAGS += -x assembler-with-cpp
 ASMFLAGS += -DNRF51
+ASMFLAGS += -DSWI_DISABLE0
 ASMFLAGS += -DBOARD_PCA10028
-ASMFLAGS += -DBSP_DEFINES_ONLY
 
 #default target - first one defined
 default: clean nrf51422_xxac

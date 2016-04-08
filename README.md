@@ -1,12 +1,19 @@
-# NewHaven OLED 1.69 display on DK51 board
+# NewHaven OLED 1.69 display on NRF51 board
 
 [![Build Status](https://drone.io/github.com/akinaru/newhaven-oled-dk51/status.png)](https://drone.io/github.com/akinaru/newhaven-oled-dk51/latest)
 
-Integration of NewHaven OLED 1.69 display arduino example on Nordic DK51 board
+Integration of NewHaven OLED 1.69 display on Nordic Semiconductor NRF51 DK board
 
 ![screenshot](img/newhaven-dk51.jpg)
 
-Original project : https://github.com/NewhavenDisplay/NHD-1.69-160128ASC3_Example
+Based on project : https://github.com/NewhavenDisplay/NHD-1.69-160128ASC3_Example
+
+## Scope
+
+* SPI communication between NRF51 board & display
+* fill screen with specified color
+* buttons 3 & 4 on NRF51 DK board switch through a sequence of color/image
+* draw 160x128 bitmap (a 24 bit bitmap image input will give an image with 3x6 bit/pixel)
 
 ## Setup/Installation
 
@@ -21,7 +28,6 @@ export NRF51_SDK_DIR=/path/to/sdk
 ## Build
 
 ```
-cd pca10028
 make
 ```
 
@@ -36,6 +42,12 @@ nrfjprog --family  nRF51 --program _build/nrf51422_xxac.hex
 
 //start firmware
 nrfjprog --family  nRF51 -r
+```
+
+or 
+
+```
+./upload.sh
 ```
 
 To debug your code : <a href="https://gist.github.com/akinaru/a38315c5fe79ec5c8c6a9ed90b8df260#debug-your-code">check this link</a>
