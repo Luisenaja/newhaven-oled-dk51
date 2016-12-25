@@ -1,6 +1,6 @@
 # NewHaven OLED 1.69 display on NRF51 board
 
-[![Build Status](https://drone.io/github.com/akinaru/newhaven-oled-dk51/status.png)](https://drone.io/github.com/akinaru/newhaven-oled-dk51/latest)
+[![Build Status](https://drone.io/github.com/bertrandmartel/newhaven-oled-dk51/status.png)](https://drone.io/github.com/bertrandmartel/newhaven-oled-dk51/latest)
 
 Integration of NewHaven OLED 1.69 display on Nordic Semiconductor NRF51 DK board
 
@@ -23,7 +23,7 @@ Based on project : https://github.com/NewhavenDisplay/NHD-1.69-160128ASC3_Exampl
 
 ## Setup/Installation
 
-* follow SDK/Toolchain Installation steps section of <a href="https://gist.github.com/akinaru/a38315c5fe79ec5c8c6a9ed90b8df260#installation-steps">this tutorial</a>
+* follow SDK/Toolchain Installation steps section of <a href="https://gist.github.com/bertrandmartel/a38315c5fe79ec5c8c6a9ed90b8df260#installation-steps">this tutorial</a>
 
 * specify NRF51 SDK directory with :
 
@@ -56,7 +56,7 @@ or
 ./upload.sh
 ```
 
-To debug your code : <a href="https://gist.github.com/akinaru/a38315c5fe79ec5c8c6a9ed90b8df260#debug-your-code">check this link</a>
+To debug your code : <a href="https://gist.github.com/bertrandmartel/a38315c5fe79ec5c8c6a9ed90b8df260#debug-your-code">check this link</a>
 
 ## License
 
